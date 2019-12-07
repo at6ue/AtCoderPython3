@@ -1,0 +1,8 @@
+*/
+wip/*
+*.code-workspace
+Pipfile.lock
+atcoder.ini
+!.vscode
+!wip
+!.gitkeep
