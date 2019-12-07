@@ -1,3 +1,5 @@
+[日本語](readme.ja.md)
+
 # AtCoderPython3
 
 The Python3 environment for AtCoder contests with Pipenv and Visual Studio Code(VSCode).
@@ -59,4 +61,4 @@ Open the prject directory as a workspace on VSCode, then the environment will be
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details

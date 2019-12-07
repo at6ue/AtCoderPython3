@@ -1,3 +1,5 @@
+[English](readme.md)
+
 # AtCoderPython3
 
 Python3 で AtCoder のコンテストに挑むための環境です。Visual Studio Code(VSCode) と Pipenv の使用を前提とします。
@@ -61,4 +63,4 @@ VSCode のワークスペースとして開くと、自動的に構成されま�
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
