@@ -27,19 +27,25 @@ def login(session, username: str, password: str):
 
 
 def get_samples(task_page: str) -> tuple:
+    hooks = (
+        ('入力例', '出力例'),
+        ('Sample Input', 'Sample Output')
+    )
 
-    return tuple(zip(
-        map(lambda x: tuple(x.splitlines()), re.findall(
-            r'<h3>Sample Input [1-9]</h3><pre>(.+?)</pre>',
-            task_page,
-            flags=(re.MULTILINE | re.DOTALL)
-        )),
-        map(lambda x: x.replace('\r\n', '\n').rstrip(), re.findall(
-            r'<h3>Sample Output [1-9]</h3><pre>(.+?)</pre>',
-            task_page,
-            flags=(re.MULTILINE | re.DOTALL)
-        ))
-    ))
+    ret = None
+    for i, o in hooks:
+        if re.search(i, task_page, flags=re.MULTILINE):
+            pat = r'<h3>{}\s*?[1-9]</h3>.*?<pre.*?>(.+?)</pre>'
+            ret = tuple(zip(
+                map(lambda x: tuple(x.strip().splitlines()), re.findall(
+                    pat.format(i), task_page, flags=(re.MULTILINE | re.DOTALL)
+                )),
+                map(lambda x: x.replace('\r\n', '\n').strip(), re.findall(
+                    pat.format(o), task_page, flags=(re.MULTILINE | re.DOTALL)
+                ))
+            ))
+            break
+    return ret
 
 
 def modify(name: str, test: str, samples: tuple) -> str:
