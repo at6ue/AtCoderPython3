@@ -1,7 +1,12 @@
 {
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
   "python.pipenvPath": "pipenv",
   "python.venvPath": ".venv",
   "python.pythonPath": ".venv/bin/python",
+  "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "python.testing.unittestEnabled": true,
