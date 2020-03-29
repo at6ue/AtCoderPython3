@@ -1,10 +1,11 @@
 # coding: utf-8
-import re
-import os
-import requests
 import argparse
-import shutil
 import configparser
+import os
+import re
+import shutil
+
+import requests
 
 
 def login(session, username: str, password: str):
@@ -100,6 +101,7 @@ def main(code: str, alpha: str, url: str = '',
         print('No test cases found. Just copy templates? (Y/n)')
         if input().lower() != 'y':
             return
+        samples = tuple()
 
     with open('test_.py', 'r') as temp:
         test = temp.read()
