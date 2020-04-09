@@ -15,6 +15,6 @@
     "--ignore-missing-imports",
     "--follow-imports=silent",
     "--show-column-numbers",
-    "--python-version 3.4"
+    "--python-version 3.8"
   ]
 }
