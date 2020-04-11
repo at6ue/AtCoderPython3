@@ -47,6 +47,8 @@ wipdir = wip
 - [Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)
 - [Visual Studio Code](https://code.visualstudio.com/download/)
 
+環境変数 `PIPENV_VENV_IN_PROJECT` に `true` を設定してください。
+
 ### Installing
 
 プロジェクトのルートフォルダで以下を実行します。

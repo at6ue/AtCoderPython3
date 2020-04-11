@@ -45,6 +45,8 @@ This project requires,
 - [Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)
 - [Visual Studio Code](https://code.visualstudio.com/download/)
 
+Set `true` to the environment variable `PIPENV_VENV_IN_PROJECT`.
+
 ### Installing
 
 Run following command in the project root directory,

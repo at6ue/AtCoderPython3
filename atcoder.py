@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding: utf-8
 import argparse
 import configparser
@@ -36,7 +37,7 @@ def get_samples(task_page: str) -> tuple:
     ret = None
     for i, o in hooks:
         if re.search(i, task_page, flags=re.MULTILINE):
-            pat = r'<h3>{}\s*?[1-9]</h3>.*?<pre.*?>(.+?)</pre>'
+            pat = r'<h3>{}\s*?[1-9]</h3>.*?<pre.*?>(.*?)</pre>'
             ret = tuple(zip(
                 map(lambda x: tuple(x.strip().splitlines()), re.findall(
                     pat.format(i), task_page, flags=(re.MULTILINE | re.DOTALL)
@@ -50,9 +51,8 @@ def get_samples(task_page: str) -> tuple:
 
 
 def modify(name: str, test: str, samples: tuple) -> str:
-
     head, indent, tail = re.search(
-        r'(.*)^(\s*?)# SAMPLES\s*?$(.*)',
+        r'(.*?)^(\s*?)# SAMPLES\s*?$(.*)',
         test,
         flags=(re.MULTILINE | re.DOTALL)
     ).groups()
@@ -76,7 +76,6 @@ def snake(text: str):
 def main(code: str, alpha: str, url: str = '',
          username: str = '', password: str = '', logout: bool = False,
          wipdir: str = ''):
-
     session = requests.session()
     session.cookies.clear()
 
@@ -106,7 +105,7 @@ def main(code: str, alpha: str, url: str = '',
     with open('test_.py', 'r') as temp:
         test = temp.read()
 
-    name = '{}_{}'.format(code, alpha)
+    name = '{}_{}'.format(snake(code), alpha)
 
     new_test = modify(name, test, samples)
     with open(os.path.join(wipdir, 'test_{}.py'.format(name)), 'w') as o:
