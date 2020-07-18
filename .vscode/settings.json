@@ -9,8 +9,7 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
-  "python.testing.unittestEnabled": true,
-  "python.testing.unittestArgs": ["-s", "./wip", "-p", "test_*.py"],
+  "python.testing.pytestEnabled": true,
   "python.linting.mypyArgs": [
     "--ignore-missing-imports",
     "--follow-imports=silent",

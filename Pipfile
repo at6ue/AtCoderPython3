@@ -6,10 +6,12 @@ verify_ssl = true
 [dev-packages]
 flake8 = "*"
 mypy = "*"
-timeout-decorator = "*"
 rope = "*"
 requests = "*"
 autopep8 = "*"
+pytest = "*"
+pytest-timeout <= "1.4"
+pytest-xdist = "*"
 
 [packages]
 networkx = "*"

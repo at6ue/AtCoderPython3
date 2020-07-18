@@ -1,49 +1,44 @@
 # coding: utf-8
-import sys
-import unittest
-from io import StringIO
+from os.path import dirname, join
 
-import timeout_decorator
+import pytest
 
 import _ as task
 
+samples = [
+    # SAMPLES
+]
 
-class AtCoderTestCase(unittest.TestCase):
+random = [
 
-    examples = [
-        # SAMPLES
-    ]
+]
 
-    boundaries = [
-    ]
+files = [
 
-    @timeout_decorator.timeout(2)
-    def test_examples(self):
-        for i, o in self.examples:
-            with self.subTest(i=i, o=o):
-                self.assertEqual(task.solve(
-                    *(i if isinstance(i, tuple) else (i,))
-                ), o)
+]
 
-    @timeout_decorator.timeout(2)
-    def test_boundaries(self):
-        for i, o in self.boundaries:
-            with self.subTest(i=i, o=o):
-                self.assertEqual(task.solve(
-                    *(i if isinstance(i, tuple) else (i,))
-                ), o)
+timeout_sec = 2
 
-    def setUp(self):
-        sys.stdout = self.stdout = StringIO()
 
-    def tearDown(self):
-        sys.stdout = sys.__stdout__
-        out = self.stdout.getvalue()
+@pytest.mark.timeout(timeout_sec)
+@pytest.mark.parametrize('i,o', samples+random)
+def test_samples(i, o, capsys):
+    _test(i, o, capsys)
+
+
+@pytest.mark.timeout(timeout_sec)
+@pytest.mark.parametrize('fi,fo', files)
+def test_files(fi, fo, capsys):
+    _test(
+        open(join(dirname(__file__), fi), 'r').read().splitlines(),
+        open(join(dirname(__file__), fo), 'r').read().strip(),
+        capsys
+    )
+
+
+def _test(i, o, capsys):
+    assert task.solve(*i) == o
+    out, _ = capsys.readouterr()
+    if out:
         print(out)
-        with self.subTest():
-            self.assertEqual(len(out), 0,
-                             msg='Remove print command')
-
-
-if __name__ == "__main__":
-    unittest.main()
+        assert False, 'Remove print commands'
