@@ -37,7 +37,7 @@ def get_samples(task_page: str) -> tuple:
     ret = None
     for i, o in hooks:
         if re.search(i, task_page, flags=re.MULTILINE):
-            pat = r'<h3>{}\s*?[1-9]</h3>.*?<pre.*?>(.*?)</pre>'
+            pat = r'<h3.*?>{}\s*?[1-9]</h3>.*?<pre.*?>(.*?)</pre>'
             ret = tuple(zip(
                 map(lambda x: tuple(x.strip().splitlines()), re.findall(
                     pat.format(i), task_page, flags=(re.MULTILINE | re.DOTALL)
