@@ -114,7 +114,7 @@ def main(code: str, alpha: str, url: str = '',
     shutil.copyfile('_.py', os.path.join(wipdir, '{}.py'.format(name)))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('code', type=str)
     parser.add_argument('alpha', type=str)

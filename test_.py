@@ -37,7 +37,12 @@ def test_files(fi, fo, capsys):
 
 
 def _test(i, o, capsys):
-    assert task.solve(*i) == o
+    ans = task.solve(*i)
+    if isinstance(ans, float):
+        assert ans == float(o)
+    else:
+        assert str(ans) == o
+
     out, _ = capsys.readouterr()
     if out:
         print(out)
