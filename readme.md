@@ -41,8 +41,9 @@ You can modify the codes except `import _ as task`.
 
 This project requires,
 
-- [Python3.4.3](https://www.python.org/downloads/release/python-343/)
-- [Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)
+- [Python3.8.2](https://www.python.org/downloads/release/python-382/)
+- [Poetry](https://python-poetry.org/docs/#installation)
+- ~~[Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)~~ (No longer maintained)
 - [Visual Studio Code](https://code.visualstudio.com/download/)
 
 Set `true` to the environment variable `PIPENV_VENV_IN_PROJECT`.
@@ -52,7 +53,7 @@ Set `true` to the environment variable `PIPENV_VENV_IN_PROJECT`.
 Run following command in the project root directory,
 
 ```
-pipenv install --dev
+poetry install
 ```
 
 Open the prject directory as a workspace on VSCode, then the environment will be automatically configured.

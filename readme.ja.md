@@ -43,8 +43,9 @@ wipdir = wip
 
 以下を予めインストールしておきます。
 
-- [Python3.4.3](https://www.python.org/downloads/release/python-343/)
-- [Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)
+- [Python3.8.2](https://www.python.org/downloads/release/python-382/)
+- [Poetry](https://python-poetry.org/docs/#installation)
+- ~~[Pipenv](https://pipenv.kennethreitz.org/en/latest/install/#installing-pipenv)~~ (保守されていません)
 - [Visual Studio Code](https://code.visualstudio.com/download/)
 
 環境変数 `PIPENV_VENV_IN_PROJECT` に `true` を設定してください。
@@ -54,7 +55,7 @@ wipdir = wip
 プロジェクトのルートフォルダで以下を実行します。
 
 ```
-pipenv install --dev
+poetry install
 ```
 
 VSCode のワークスペースとして開くと、自動的に構成されます。
