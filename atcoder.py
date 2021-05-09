@@ -88,6 +88,10 @@ def main(code: str, alpha: str, url: str = '',
             c=code, cs=snake(code), a=alpha
         )
     res = session.get(url)
+    if res.status_code != 200:
+        print(res.status_code)
+        return
+
     samples = get_samples(res.text)
 
     if logout:
