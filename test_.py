@@ -1,4 +1,5 @@
 # coding: utf-8
+from os import environ
 from os.path import dirname, join
 
 import pytest
@@ -17,7 +18,7 @@ files = [
 
 ]
 
-timeout_sec = 2
+timeout_sec = 2 if "PYDEVD_USE_FRAME_EVAL" not in environ else None
 
 
 @pytest.mark.timeout(timeout_sec)
