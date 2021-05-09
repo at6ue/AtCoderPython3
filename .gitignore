@@ -2,6 +2,7 @@
 wip/*
 *.code-workspace
 Pipfile.lock
+poetry.lock
 atcoder.ini
 !.vscode
 !wip
